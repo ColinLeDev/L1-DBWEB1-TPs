@@ -1,0 +1,67 @@
+header{
+    background-color: orangered;
+}
+body{
+    font-family: "Trebuchet MS";
+}
+menu{
+    float: right;
+    width: 30%;
+}
+menu li{
+    display: block;
+}
+section{
+    margin: 2% 3% 0 3%;
+    background-color: lightsalmon;
+    padding: 1% 2% 5px 2%;
+}
+section article{
+    margin: 1%;
+    background-color: lightpink;
+    padding: 1% 2% 1% 2%;
+}
+
+.parcours{
+    color: #ea5346;
+    font-family: 'icomoon';
+    content: "\e800";
+    font-size: 0.6em;
+    display: inline-block;
+    margin-right: 1em;
+    vertical-align: baseline;
+    position: relative;
+    bottom: 2px;
+    padding-left: 0.1em;
+}
+
+footer{
+    position: fixed;
+    bottom: 0;
+    background-color: aquamarine;
+    width: 100%;
+}
+footer text{
+    text-align: right;
+}
+
+
+
+table{
+    text-align: center;
+    width: 95%;
+    margin: auto;
+    border: 3px double black;
+}
+tfoot{
+    font-weight: bold;
+}
+tr:hover{
+    background-color: lightgray;
+}
+
+
+
+
+
+

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS Exemple : Une page CV</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<link rel="stylesheet" id="theme" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<style>
+html,body,h1,h2,h3,h4,h5,h6,div {font-family: "Roboto", sans-serif}
+</style>
+<script type="text/javascript">
+let popUpPython, popUpJava, popUpHtmlCSS, popUpTheme, lastTheme;
+
+function on_load() {
+  popUpPython = document.getElementById("python");
+  popUpJava = document.getElementById('java');
+  popUpHtmlCSS = document.getElementById('html/css');
+  popUpTheme = document.getElementById('themeMenu');
+  apply_theme();
+  div = document.getElementById("themeMenu");
+  a = div.getElementsByTagName("li");
+  for (i = 0; i < a.length; i++) {
+  	a[i].attributes.onclick.value="set_theme('"+a[i].attributes.theme.value+"')";
+  	a[i].attributes.class.value+=" w3-"+a[i].attributes.theme.value+" w3-hover-text-"+a[i].attributes.theme.value+"";
+  }
+}
+// Filter
+function filtre() {
+  var input, filter, ul, li, a, i, nb=0;
+  input = document.getElementById("themeFilterInput");
+  filter = input.value.toUpperCase();
+  div = document.getElementById("themeMenu");
+  a = div.getElementsByTagName("li");
+  for (i = 0; i < a.length; i++) {
+    txtValue = a[i].textContent || a[i].attributes.theme.value;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      a[i].style.display = "";
+      nb++;
+    } else {
+      a[i].style.display = "none";
+    }
+  }
+}
+
+function theme_menu(){
+  filtre();
+  document.getElementById('themeMenu').style.display='block';
+  lastTheme=localStorage.getItem("theme");
+}
+function apply_theme(){
+  if (localStorage.getItem("theme")){
+  document.getElementById("theme").href="https://www.w3schools.com/lib/w3-theme-"+localStorage.getItem("theme")+".css";
+  }
+  else{
+    localStorage.setItem("theme", "indigo");
+  }
+}
+function cancel_theme(){
+  set_theme(lastTheme);
+  document.getElementById('themeMenu').style.display='none';
+  document.getElementById("themeFilterInput").value="";
+  filtre();
+}
+function save_theme(){
+  document.getElementById('themeMenu').style.display='none';
+  document.getElementById("themeFilterInput").value="";
+  filtre();
+}
+function set_theme(theme){
+  localStorage.setItem("theme", theme);
+  apply_theme();
+}
+
+
+window.onclick = function(event) {
+  if (event.target.id == popUpPython.id) {
+    popUpPython.style.display = "none";
+  }
+  if (event.target.id == popUpJava.id) {
+    popUpJava.style.display = "none";
+  }
+  if (event.target.id == popUpHtmlCSS.id) {
+    popUpHtmlCSS.style.display = "none";
+  }
+  if (event.target.id == popUpTheme.id) {
+    popUpTheme.style.display = "none";
+  }
+}
+
+function move(bar,taille) {
+    var elem = document.getElementById(bar);   
+    var width = 0;
+    var id = setInterval(frame, 1);
+    function frame() {
+      if (width >= taille) {
+        clearInterval(id);
+      } else {
+        width++; 
+        elem.style.width = width + '%'; 
+      }
+    }
+  }
+</script>
+<body class="w3-light-grey" onload="on_load()">
+<!-- Page Container -->
+<div class="w3-container w3-content w3-margin-top" style="max-width:1400px;">
+  <!-- The Grid -->
+  <div class="w3-row-padding" style="margin:0 -16px">
+    <!-- Left Column -->
+    <div class="w3-third">
+    
+      <div class="w3-white w3-text-grey w3-card-4">
+        <div class="w3-display-container">
+          <img src="w3images/geek.jpg" style="width:100%;" alt="Avatar">
+          <div class="w3-display-bottomleft w3-container w3-text-black">
+<!-- 
+ 			<div class="w3-container w3-text-black w3-theme">
+ -->
+            <h2>François Dupont</h2>
+          </div>
+        </div>
+        <div class="w3-container ">
+          <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-theme w3-spin"></i>Developpeur</p>
+          <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-theme"></i>Avignon, FR</p>
+          <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-theme"></i>biggeek@alumni.univ-avignon.fr</p>
+          <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-theme"></i>0123456789</p>
+          <hr>
+
+          <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-theme"></i>Compétences</b></p>
+          <p>Programmation Python</p>
+          <div class="w3-progress-container w3-round-xlarge w3-small" onmouseenter="move('bar1',90)">
+            <div class="w3-progressbar w3-round-xlarge w3-theme-l1 w3-hover-theme w3-hover-shadow" style="width:90%" id="bar1">
+              <div class="w3-center w3-text-white">90%</div>
+            </div>
+          </div>
+          <p>Conception Internet</p>
+          <div class="w3-progress-container w3-round-xlarge w3-small" onmouseenter="move('bar2',80)">
+            <div class="w3-progressbar w3-round-xlarge w3-theme-l1 w3-hover-theme w3-hover-shadow" style="width:80%" id="bar2">
+              <div class="w3-center w3-text-white">80%</div>
+            </div>
+          </div>
+          <p>Sciences (math, physique...)</p>
+          <div class="w3-progress-container w3-round-xlarge w3-small" onmouseenter="move('bar3',75)">
+            <div class="w3-progressbar w3-round-xlarge w3-theme-l1 w3-hover-theme w3-hover-shadow" style="width:75%" id="bar3">
+              <div class="w3-center w3-text-white">75%</div>
+            </div>
+          </div>
+          <p>Communication</p>
+          <div class="w3-progress-container w3-round-xlarge w3-small" onmouseenter="move('bar4',70)">
+            <div class="w3-progressbar w3-round-xlarge w3-theme-l1 w3-hover-theme w3-hover-shadow" style="width:70%" id="bar4">
+              <div class="w3-center w3-text-white">70%</div>
+            </div>
+          </div>
+          <br>
+
+          <p class="w3-large w3-text-theme"><b><i class="fa fa-globe fa-fw w3-margin-right w3-text-theme"></i>Languages</b></p>
+          <p>Python</p>
+          <div class="w3-progress-container w3-round-xlarge w3-container w3-padding-0">
+            <div id="test" class="w3-progressbar w3-round-xlarge w3-theme-l1 w3-hover-theme w3-center w3-hover-shadow" style="width:100%; cursor:pointer" onclick="document.getElementById('python').style.display='block'"><span class="w3-text">Obtenir plus de détails</span> </div>
+          </div>
+          <p>Java</p>
+          <div class="w3-progress-container w3-round-xlarge w3-container w3-padding-0">
+            <div class="w3-progressbar w3-round-xlarge w3-theme-l1 w3-hover-theme w3-center w3-hover-shadow" style="width:75%; cursor:pointer" onclick="document.getElementById('java').style.display='block'"><span class="w3-text">Obtenir plus de détails</span> </div>
+          </div>
+          <p>HTML/CSS</p>
+          <div class="w3-progress-container w3-round-xlarge w3-container w3-padding-0">
+            <div class="w3-progressbar w3-round-xlarge w3-theme-l1 w3-hover-theme w3-center w3-hover-shadow" style="width:45%; cursor:pointer" onclick="document.getElementById('html/css').style.display='block'"><span class="w3-text">Obtenir plus de détails</span> </div>
+          </div>
+          <br>
+        </div>
+      </div><br>
+
+    <!-- End Left Column -->
+    </div>
+    <!-- Right Column -->
+    <div class="w3-twothird">
+      <div class="w3-card-2 w3-margin">
+        <table class="w3-table">
+          <tr class="w3-theme-l4 w3-hover-theme">
+            <td>Ma formation</td>
+            <td><a href="#form-ante2010">avant 2010</a></td>
+            <td><a href="#form-2010-13">2010-2013</a></td>
+            <td><a href="#form-2013-15">2013-2015</a></td>
+          </tr>
+          <tr class="w3-theme-l3 w3-hover-theme">
+            <td>Mon expérience</td>
+            <td><a href="#exp-ante2010">avant 2010</a></td>
+            <td><a href="#exp-2010-13">2010-2013</a></td>
+            <td><a href="#exp-2013-15">2013-2015</a></td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="w3-container w3-card-2 w3-white w3-margin-bottom">
+        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-theme"></i>Formation</h2>
+        <div class="w3-container">
+          <h5 class="w3-opacity-min"><b>OuverteSalledeClasses.com</b></h5>
+          <h6 class="w3-text-theme"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Permanent</h6>
+          <p>Tout langage, technologie. Formation en ligne et mise à niveau.</p>
+          <hr>
+        </div>
+        <div class="w3-container" id="form-2013-15">
+          <h5 class="w3-opacity-min"><b>CERI - Master Informatique, Université d'Avignon</b></h5>
+          <h6 class="w3-text-theme"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2013 - 2015</h6>
+          <p>Master en Informatique, spécialité ILSEN (Ingénierie Logicielle et Société Numérique). Stage chez maboite@com.</p>
+          <hr>
+        </div>
+        <div class="w3-container" id="form-2010-13">
+          <h5 class="w3-opacity-min"><b>CERI - Licence Informatique, Université d'Avignon</b></h5>
+          <h6 class="w3-text-theme"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2010 - 2013</h6>
+          <p>Licence en Informatique (Bachelor Degree), spécialité Ingénierie Logicielle. Stage chez Agora.</p><br>
+        </div>
+        <div class="w3-container" id="form-ante2010">
+          <h5 class="w3-opacity-min"><b>Bac S - Lycée de la Tchatche</b></h5>
+          <h6 class="w3-text-theme"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2007 - 2010</h6>
+          <p>Baccalauréat série S. Mention Bien.</p><br>
+        </div>
+      </div>
+
+      <div class="w3-container w3-card-2 w3-white" id="exp-2013-15">
+        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-theme"></i>Expérience professionnelle</h2>
+        <div class="w3-container">
+          <h5 class="w3-opacity-min"><b>Stage Développeur chez maboite@com</b></h5>
+          <h6 class="w3-text-theme"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Juil 2016 - <div class="w3-tag w3-theme w3-round-medium w3-hover-shadow" style="cursor:context-menu">Current</div></h6>
+          <p>Dans le contexte de ce stage j'ai du revoir toute la stratégie de développement de la start-up maboite.com, spécialisée dans la fourniture clefs en main d'un package numérique aux nouvelles entreprises.</p>
+          <hr>
+        </div>
+        <div class="w3-container" id="exp-2010-13">
+          <h5 class="w3-opacity-min"><b>Développeur Web chez Agora</b></h5>
+          <h6 class="w3-text-theme"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Juil-Aou 2012 et Juil-Aou 2013</h6>
+          <p>L'entreprise Agora est spécialisée dans le recueil des opinions de panels d'utilisateurs pour des entreprises. Dans ce contexte, j'ai eu à revoir l'architecture de la base de données sur laquelle repose toutes les interfaces web utilisées par les télé-opérateurs.</p>
+          <hr>
+        </div>
+        <div class="w3-container" id="exp-ante2010">
+          <h5 class="w3-opacity-min"><b>Surveillance chez Auprés</b></h5>
+          <h6 class="w3-text-theme"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Jun-Sept 2009</h6>
+          <p>Intégré dans l'équipe surveillance d'un magasin Auprés de ma ville. En charge du matériel électronique.</p><br>
+        </div>
+      </div>
+
+
+    <!-- End Right Column -->
+    </div>
+  <!-- End Grid -->
+  </div>
+  <!-- Zone trucs en plus -->
+
+  <div id="python" class="w3-modal w3-dark-grey w3-auto">
+    <div class="w3-modal-content w3-theme-l4 w3-text-theme w3-center w3-cursive w3-xlarge">
+    	Python
+      <div class="w3-container w3-theme-l3 w3-padding-32 w3-medium">
+        <span onclick="document.getElementById('python').style.display='none'" class="w3-button w3-display-topright w3-theme-d5 w3-hover-theme w3-hover-shadow">&times;</span>
+        <p>Python est un langage de programmation interprété, multiparadigme et multiplateformes. </p>
+        <p>Il favorise la programmation impérative structurée, fonctionnelle et orientée objet. </p>
+        <p>Il est doté d'un typage dynamique fort, d'une gestion automatique de la mémoire par ramasse-miettes et d'un système de gestion d'exceptions ; il est ainsi similaire à Perl, Ruby, Scheme, Smalltalk et Tcl.</p>
+        <a href="https://fr.wikipedia.org/wiki/Python_(langage)" class="w3-btn w3-round-xxlarge w3-theme-d3 w3-hover-theme"> plus de détails...</a>
+      </div>
+    </div>
+  </div>
+  <div id="java" class="w3-modal w3-dark-grey w3-auto">
+    <div class="w3-modal-content w3-theme-l4 w3-text-theme w3-center w3-cursive w3-xlarge">
+      Java
+      <div class="w3-container w3-theme-l3 w3-padding-32 w3-medium">
+        <span onclick="document.getElementById('java').style.display='none'" class="w3-button w3-display-topright w3-theme-d5 w3-hover-theme w3-hover-shadow">&times;</span>
+        <p>Java est un langage de programmation orienté objet créé par James Gosling et Patrick Naughton, employés de Sun Microsystems, avec le soutien de Bill Joy (cofondateur de Sun Microsystems en 1982), présenté officiellement le 23 mai 1995 au .SunWorld</p>
+        <p>La société Sun a été ensuite rachetée en 2009 par la société Oracle qui détient et maintient désormais Java.</p>
+        <p>Une particularité de Java est que les logiciels écrits dans ce langage sont compilés vers une représentation binaire intermédiaire qui peut être exécutée dans une machine virtuelle Java (JVM) en faisant abstraction du système d'exploitation.</p>
+        <a href="https://fr.wikipedia.org/wiki/Java_(langage)" class="w3-btn w3-round-xxlarge w3-theme-d3 w3-hover-theme"> plus de détails...</a>
+      </div>
+    </div>
+  </div>
+  <div id="html/css" class="w3-modal w3-dark-grey w3-auto">
+    <div class="w3-modal-content w3-theme-l4 w3-text-theme w3-center w3-cursive w3-xlarge">
+      HTML/CSS
+      <div class="w3-container w3-theme-l3 w3-padding-32 w3-medium">
+        <span onclick="document.getElementById('html/css').style.display='none'" class="w3-button w3-display-topright w3-theme-d5 w3-hover-theme w3-hover-shadow">&times;</span>
+        <p>Le HyperText Markup Language, généralement abrégé HTML ou, dans sa dernière version, HTML5, est le langage de balisage conçu pour représenter les pages web.</p>
+        <p>Ce langage permet d’écrire de l’hypertexte (d’où son nom), de structurer sémantiquement une page web, de mettre en forme du contenu, de créer des formulaires de saisie ou encore d’inclure des ressources multimédias dont des images, des vidéos, et des programmes informatiques.</p>
+        <p> L'HTML offre également la possibilité de créer des documents interopérables avec des équipements très variés et conformément aux exigences de l’accessibilité du web.</p>
+        <p>Il est souvent utilisé conjointement avec le langage de programmation JavaScript et des feuilles de style en cascade (CSS).</p>
+        <p>HTML est inspiré du Standard Generalized Markup Language (SGML). Il s'agit d'un format ouvert.</p>
+        <p><br></p>
+        <p>Les feuilles de style en cascade1, généralement appelées CSS de l'anglais Cascading Style Sheets, forment un langage informatique qui décrit la présentation des documents HTML et XML.</p>
+        <p>Les standards définissant CSS sont publiés par le World Wide Web Consortium (W3C).</p>
+        <p>Introduit au milieu des années 1990, CSS devient couramment utilisé dans la conception de sites web et bien pris en charge par les navigateurs web dans les années 2000.</p>
+        <p><br></p>
+        <p></p>
+        <a href="https://fr.wikipedia.org/wiki/Hypertext_Markup_Language" class="w3-btn w3-round-xxlarge w3-theme-d3 w3-hover-theme"> plus de détails sur le HTML...</a>
+        <a href="https://fr.wikipedia.org/wiki/Feuilles_de_style_en_cascade" class="w3-btn w3-round-xxlarge w3-theme-d3 w3-hover-theme"> plus de détails sur le CSS...</a>
+      </div>
+    </div>
+  </div>
+  <div id="themeMenu" class="w3-modal w3-dark-grey w3-auto">
+    <div class="w3-modal-content w3-theme-l4 w3-text-theme w3-center w3-cursive w3-xlarge">
+      Menu de changement du thème
+      <div class="w3-container w3-theme-l3 w3-padding-32 w3-medium">
+        <a onclick="cancel_theme()" class="w3-btn w3-round-xxlarge w3-red-d3 w3-hover-theme"> Annuler </a>
+        <a onclick="save_theme()" class="w3-btn w3-round-xxlarge w3-green-d3 w3-hover-theme"> Sauvegarder </a>
+        <p></p>
+          <div class="">
+            <div class="w3-bar-block w3-card" id="themeMenu">
+              <input class="w3-input w3-padding" type="text" placeholder="Rechercher un thème..." id="themeFilterInput" onkeyup="filtre()">
+              <li class="w3-bar-item w3-button w3-center" theme="red" onclick>Rouge</li>
+              <li class="w3-bar-item w3-button w3-center" theme="pink" onclick>Rose</li>
+              <li class="w3-bar-item w3-button w3-center" theme="purple" onclick>Violet</li>
+              <li class="w3-bar-item w3-button w3-center" theme="deep-purple" onclick>Violet profond</li>
+              <li class="w3-bar-item w3-button w3-center" theme="indigo" onclick>Indigo</li>
+              <li class="w3-bar-item w3-button w3-center" theme="blue" onclick>Bleu</li>
+              <li class="w3-bar-item w3-button w3-center" theme="light-blue" onclick>Bleu léger</li>
+              <li class="w3-bar-item w3-button w3-center" theme="cyan" onclick>Cyan</li>
+              <li class="w3-bar-item w3-button w3-center" theme="teal" onclick>Bleu canard</li>
+              <li class="w3-bar-item w3-button w3-center" theme="green" onclick>Vert</li>
+              <li class="w3-bar-item w3-button w3-center" theme="light-green" onclick>Vert léger</li>
+              <li class="w3-bar-item w3-button w3-center" theme="lime" onclick>Citron</li>
+              <li class="w3-bar-item w3-button w3-center" theme="khaki" onclick>Kaki</li>
+              <li class="w3-bar-item w3-button w3-center" theme="yellow" onclick>Jaune</li>
+              <li class="w3-bar-item w3-button w3-center" theme="amber" onclick>Ambre</li>
+              <li class="w3-bar-item w3-button w3-center" theme="orange" onclick>Orange</li>
+              <li class="w3-bar-item w3-button w3-center" theme="deep-orange" onclick>Orange profond</li>
+              <li class="w3-bar-item w3-button w3-center" theme="blue-grey" onclick>Bleu-gris</li>
+              <li class="w3-bar-item w3-button w3-center" theme="brown" onclick>Marron</li>
+              <li class="w3-bar-item w3-button w3-center" theme="grey" onclick>Gris</li>
+              <li class="w3-bar-item w3-button w3-center" theme="dark-grey" onclick>Gris sombre</li>
+            </div>
+          </div>
+        <p><br></p>
+        <p></p>
+        <a onclick="cancel_theme()" class="w3-btn w3-round-xxlarge w3-red-d3 w3-hover-theme"> Annuler </a>
+        <a onclick="save_theme()" class="w3-btn w3-round-xxlarge w3-green-d3 w3-hover-theme"> Sauvegarder </a>
+      </div>
+    </div>
+  </div>
+  <!-- Fin de la zone supplémentaire -->
+</div>
+  <!-- End Page Container -->
+</div>
+<footer class="w3-container w3-theme-d3 w3-center w3-margin-top">
+  <i class="fa fa-copyright fa-fw w3-margin-right"></i>2016, François Dupont, contactez-moi aussi sur : <i class="fa-brands fa-facebook-square"></i> <i class="fa-brands fa-twitter w3-margin-left w3-margin-right"></i>
+  
+    <button class="w3-button w3-theme-d5" onclick="theme_menu()"><i class="fa-sharp fa-solid fa-palette w3-text-theme"></i> Changer de thème</button>
+</footer>
+</body>
+</html>

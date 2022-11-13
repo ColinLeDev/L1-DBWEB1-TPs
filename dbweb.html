@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+
+<html  dir="ltr" lang="en" xml:lang="en">
+<head>
+    <title>ue dbweb 1 : conception internet (S-U02-1254): TP 2 - Liens hypertextes et listes</title>
+    <link rel="shortcut icon" href="https://e-uapv2022.univ-avignon.fr/theme/image.php/boost/theme/1664458079/favicon" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+<meta name="keywords" content="moodle, ue dbweb 1 : conception internet (S-U02-1254): TP 2 - Liens hypertextes et listes" />
+<link rel="stylesheet" type="text/css" href="https://e-uapv2022.univ-avignon.fr/theme/yui_combo.php?rollup/3.17.2/yui-moodlesimple-min.css" /><script id="firstthemesheet" type="text/css">/** Required in order to fix style inclusion problems in IE with YUI **/</script><link rel="stylesheet" type="text/css" href="https://e-uapv2022.univ-avignon.fr/theme/styles.php/boost/1664458079_1/all" />
+<script>
+//<![CDATA[
+var M = {}; M.yui = {};
+M.pageloadstarttime = new Date();
+M.cfg = {"wwwroot":"https:\/\/e-uapv2022.univ-avignon.fr","homeurl":{},"sesskey":"sS3BMrJZkc","sessiontimeout":"28800","sessiontimeoutwarning":"1200","themerev":"1664458079","slasharguments":1,"theme":"boost","iconsystemmodule":"core\/icon_system_fontawesome","jsrev":"1664458079","admin":"admin","svgicons":true,"usertimezone":"Europe\/Paris","courseId":3166,"courseContextId":20837,"contextid":20862,"contextInstanceId":14150,"langrev":1664852172,"templaterev":"1664458079"};var yui1ConfigFn = function(me) {if(/-skin|reset|fonts|grids|base/.test(me.name)){me.type='css';me.path=me.path.replace(/\.js/,'.css');me.path=me.path.replace(/\/yui2-skin/,'/assets/skins/sam/yui2-skin')}};
+var yui2ConfigFn = function(me) {var parts=me.name.replace(/^moodle-/,'').split('-'),component=parts.shift(),module=parts[0],min='-min';if(/-(skin|core)$/.test(me.name)){parts.pop();me.type='css';min=''}
+if(module){var filename=parts.join('-');me.path=component+'/'+module+'/'+filename+min+'.'+me.type}else{me.path=component+'/'+component+'.'+me.type}};
+YUI_config = {"debug":false,"base":"https:\/\/e-uapv2022.univ-avignon.fr\/lib\/yuilib\/3.17.2\/","comboBase":"https:\/\/e-uapv2022.univ-avignon.fr\/theme\/yui_combo.php?","combine":true,"filter":null,"insertBefore":"firstthemesheet","groups":{"yui2":{"base":"https:\/\/e-uapv2022.univ-avignon.fr\/lib\/yuilib\/2in3\/2.9.0\/build\/","comboBase":"https:\/\/e-uapv2022.univ-avignon.fr\/theme\/yui_combo.php?","combine":true,"ext":false,"root":"2in3\/2.9.0\/build\/","patterns":{"yui2-":{"group":"yui2","configFn":yui1ConfigFn}}},"moodle":{"name":"moodle","base":"https:\/\/e-uapv2022.univ-avignon.fr\/theme\/yui_combo.php?m\/1664458079\/","combine":true,"comboBase":"https:\/\/e-uapv2022.univ-avignon.fr\/theme\/yui_combo.php?","ext":false,"root":"m\/1664458079\/","patterns":{"moodle-":{"group":"moodle","configFn":yui2ConfigFn}},"filter":null,"modules":{"moodle-core-handlebars":{"condition":{"trigger":"handlebars","when":"after"}},"moodle-core-popuphelp":{"requires":["moodle-core-tooltip"]},"moodle-core-tooltip":{"requires":["base","node","io-base","moodle-core-notification-dialogue","json-parse","widget-position","widget-position-align","event-outside","cache-base"]},"moodle-core-maintenancemodetimer":{"requires":["base","node"]},"moodle-core-chooserdialogue":{"requires":["base","panel","moodle-core-notification"]},"moodle-core-dragdrop":{"requires":["base","node","io","dom","dd","event-key","event-focus","moodle-core-notification"]},"moodle-core-formchangechecker":{"requires":["base","event-focus","moodle-core-event"]},"moodle-core-blocks":{"requires":["base","node","io","dom","dd","dd-scroll","moodle-core-dragdrop","moodle-core-notification"]},"moodle-core-event":{"requires":["event-custom"]},"moodle-core-languninstallconfirm":{"requires":["base","node","moodle-core-notification-confirm","moodle-core-notification-alert"]},"moodle-core-actionmenu":{"requires":["base","event","node-event-simulate"]},"moodle-core-lockscroll":{"requires":["plugin","base-build"]},"moodle-core-notification":{"requires":["moodle-core-notification-dialogue","moodle-core-notification-alert","moodle-core-notification-confirm","moodle-core-notification-exception","moodle-core-notification-ajaxexception"]},"moodle-core-notification-dialogue":{"requires":["base","node","panel","escape","event-key","dd-plugin","moodle-core-widget-focusafterclose","moodle-core-lockscroll"]},"moodle-core-notification-alert":{"requires":["moodle-core-notification-dialogue"]},"moodle-core-notification-confirm":{"requires":["moodle-core-notification-dialogue"]},"moodle-core-notification-exception":{"requires":["moodle-core-notification-dialogue"]},"moodle-core-notification-ajaxexception":{"requires":["moodle-core-notification-dialogue"]},"moodle-core_availability-form":{"requires":["base","node","event","event-delegate","panel","moodle-core-notification-dialogue","json"]},"moodle-backup-confirmcancel":{"requires":["node","node-event-simulate","moodle-core-notification-confirm"]},"moodle-backup-backupselectall":{"requires":["node","event","node-event-simulate","anim"]},"moodle-course-management":{"requires":["base","node","io-base","moodle-core-notification-exception","json-parse","dd-constrain","dd-proxy","dd-drop","dd-delegate","node-event-delegate"]},"moodle-course-dragdrop":{"requires":["base","node","io","dom","dd","dd-scroll","moodle-core-dragdrop","moodle-core-notification","moodle-course-coursebase","moodle-course-util"]},"moodle-course-categoryexpander":{"requires":["node","event-key"]},"moodle-course-util":{"requires":["node"],"use":["moodle-course-util-base"],"submodules":{"moodle-course-util-base":{},"moodle-course-util-section":{"requires":["node","moodle-course-util-base"]},"moodle-course-util-cm":{"requires":["node","moodle-course-util-base"]}}},"moodle-form-dateselector":{"requires":["base","node","overlay","calendar"]},"moodle-form-shortforms":{"requires":["node","base","selector-css3","moodle-core-event"]},"moodle-form-passwordunmask":{"requires":[]},"moodle-question-searchform":{"requires":["base","node"]},"moodle-question-chooser":{"requires":["moodle-core-chooserdialogue"]},"moodle-question-preview":{"requires":["base","dom","event-delegate","event-key","core_question_engine"]},"moodle-availability_completion-form":{"requires":["base","node","event","moodle-core_availability-form"]},"moodle-availability_date-form":{"requires":["base","node","event","io","moodle-core_availability-form"]},"moodle-availability_grade-form":{"requires":["base","node","event","moodle-core_availability-form"]},"moodle-availability_group-form":{"requires":["base","node","event","moodle-core_availability-form"]},"moodle-availability_grouping-form":{"requires":["base","node","event","moodle-core_availability-form"]},"moodle-availability_profile-form":{"requires":["base","node","event","moodle-core_availability-form"]},"moodle-mod_assign-history":{"requires":["node","transition"]},"moodle-mod_attendance-groupfilter":{"requires":["base","node"]},"moodle-mod_checklist-linkselect":{"requires":["node","event-valuechange"]},"moodle-mod_offlinequiz-dragdrop":{"requires":["base","node","io","dom","dd","dd-scroll","moodle-core-dragdrop","moodle-core-notification","moodle-mod_offlinequiz-offlinequizbase","moodle-mod_offlinequiz-util-base","moodle-mod_offlinequiz-util-page","moodle-mod_offlinequiz-util-slot","moodle-course-util"]},"moodle-mod_offlinequiz-modform":{"requires":["base","node","event"]},"moodle-mod_offlinequiz-repaginate":{"requires":["base","event","node","io","moodle-core-notification-dialogue"]},"moodle-mod_offlinequiz-offlinequizquestionbank":{"requires":["base","event","node","io","io-form","yui-later","moodle-question-qbankmanager","moodle-question-chooser","moodle-question-searchform","moodle-core-notification"]},"moodle-mod_offlinequiz-toolboxes":{"requires":["base","node","event","event-key","io","moodle-mod_offlinequiz-offlinequizbase","moodle-mod_offlinequiz-util-slot","moodle-core-notification-ajaxexception"]},"moodle-mod_offlinequiz-offlinequizbase":{"requires":["base","node"]},"moodle-mod_offlinequiz-questionchooser":{"requires":["moodle-core-chooserdialogue","moodle-mod_offlinequiz-util","querystring-parse"]},"moodle-mod_offlinequiz-autosave":{"requires":["base","node","event","event-valuechange","node-event-delegate","io-form"]},"moodle-mod_offlinequiz-randomquestion":{"requires":["base","event","node","io","moodle-core-notification-dialogue"]},"moodle-mod_offlinequiz-util":{"requires":["node"],"use":["moodle-mod_offlinequiz-util-base"],"submodules":{"moodle-mod_offlinequiz-util-base":{},"moodle-mod_offlinequiz-util-slot":{"requires":["node","moodle-mod_offlinequiz-util-base"]},"moodle-mod_offlinequiz-util-page":{"requires":["node","moodle-mod_offlinequiz-util-base"]}}},"moodle-mod_quiz-dragdrop":{"requires":["base","node","io","dom","dd","dd-scroll","moodle-core-dragdrop","moodle-core-notification","moodle-mod_quiz-quizbase","moodle-mod_quiz-util-base","moodle-mod_quiz-util-page","moodle-mod_quiz-util-slot","moodle-course-util"]},"moodle-mod_quiz-modform":{"requires":["base","node","event"]},"moodle-mod_quiz-toolboxes":{"requires":["base","node","event","event-key","io","moodle-mod_quiz-quizbase","moodle-mod_quiz-util-slot","moodle-core-notification-ajaxexception"]},"moodle-mod_quiz-questionchooser":{"requires":["moodle-core-chooserdialogue","moodle-mod_quiz-util","querystring-parse"]},"moodle-mod_quiz-autosave":{"requires":["base","node","event","event-valuechange","node-event-delegate","io-form"]},"moodle-mod_quiz-quizbase":{"requires":["base","node"]},"moodle-mod_quiz-util":{"requires":["node","moodle-core-actionmenu"],"use":["moodle-mod_quiz-util-base"],"submodules":{"moodle-mod_quiz-util-base":{},"moodle-mod_quiz-util-slot":{"requires":["node","moodle-mod_quiz-util-base"]},"moodle-mod_quiz-util-page":{"requires":["node","moodle-mod_quiz-util-base"]}}},"moodle-mod_scheduler-studentlist":{"requires":["base","node","event","io"]},"moodle-mod_scheduler-delselected":{"requires":["base","node","event"]},"moodle-mod_scheduler-saveseen":{"requires":["base","node","event"]},"moodle-message_airnotifier-toolboxes":{"requires":["base","node","io"]},"moodle-block_xp-filters":{"requires":["base","node","moodle-core-dragdrop","moodle-core-notification-confirm","moodle-block_xp-rulepicker"]},"moodle-block_xp-rulepicker":{"requires":["base","node","handlebars","moodle-core-notification-dialogue"]},"moodle-block_xp-notification":{"requires":["base","node","handlebars","button-plugin","moodle-core-notification-dialogue"]},"moodle-filter_glossary-autolinker":{"requires":["base","node","io-base","json-parse","event-delegate","overlay","moodle-core-event","moodle-core-notification-alert","moodle-core-notification-exception","moodle-core-notification-ajaxexception"]},"moodle-filter_mathjaxloader-loader":{"requires":["moodle-core-event"]},"moodle-editor_atto-editor":{"requires":["node","transition","io","overlay","escape","event","event-simulate","event-custom","node-event-html5","node-event-simulate","yui-throttle","moodle-core-notification-dialogue","moodle-core-notification-confirm","moodle-editor_atto-rangy","handlebars","timers","querystring-stringify"]},"moodle-editor_atto-plugin":{"requires":["node","base","escape","event","event-outside","handlebars","event-custom","timers","moodle-editor_atto-menu"]},"moodle-editor_atto-menu":{"requires":["moodle-core-notification-dialogue","node","event","event-custom"]},"moodle-editor_atto-rangy":{"requires":[]},"moodle-report_eventlist-eventfilter":{"requires":["base","event","node","node-event-delegate","datatable","autocomplete","autocomplete-filters"]},"moodle-report_loglive-fetchlogs":{"requires":["base","event","node","io","node-event-delegate"]},"moodle-gradereport_history-userselector":{"requires":["escape","event-delegate","event-key","handlebars","io-base","json-parse","moodle-core-notification-dialogue"]},"moodle-qbank_editquestion-chooser":{"requires":["moodle-core-chooserdialogue"]},"moodle-tool_capability-search":{"requires":["base","node"]},"moodle-tool_lp-dragdrop-reorder":{"requires":["moodle-core-dragdrop"]},"moodle-tool_monitor-dropdown":{"requires":["base","event","node"]},"moodle-assignfeedback_editpdf-editor":{"requires":["base","event","node","io","graphics","json","event-move","event-resize","transition","querystring-stringify-simple","moodle-core-notification-dialog","moodle-core-notification-alert","moodle-core-notification-warning","moodle-core-notification-exception","moodle-core-notification-ajaxexception"]},"moodle-atto_accessibilitychecker-button":{"requires":["color-base","moodle-editor_atto-plugin"]},"moodle-atto_accessibilityhelper-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_align-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_bold-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_charmap-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_clear-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_collapse-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_emojipicker-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_emoticon-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_equation-button":{"requires":["moodle-editor_atto-plugin","moodle-core-event","io","event-valuechange","tabview","array-extras"]},"moodle-atto_h5p-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_html-button":{"requires":["promise","moodle-editor_atto-plugin","moodle-atto_html-beautify","moodle-atto_html-codemirror","event-valuechange"]},"moodle-atto_html-codemirror":{"requires":["moodle-atto_html-codemirror-skin"]},"moodle-atto_html-beautify":{},"moodle-atto_image-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_indent-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_italic-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_link-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_managefiles-usedfiles":{"requires":["node","escape"]},"moodle-atto_managefiles-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_media-button":{"requires":["moodle-editor_atto-plugin","moodle-form-shortforms"]},"moodle-atto_noautolink-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_orderedlist-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_recordrtc-button":{"requires":["moodle-editor_atto-plugin","moodle-atto_recordrtc-recording"]},"moodle-atto_recordrtc-recording":{"requires":["moodle-atto_recordrtc-button"]},"moodle-atto_rtl-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_strike-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_subscript-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_superscript-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_table-button":{"requires":["moodle-editor_atto-plugin","moodle-editor_atto-menu","event","event-valuechange"]},"moodle-atto_title-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_underline-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_undo-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_unorderedlist-button":{"requires":["moodle-editor_atto-plugin"]}}},"gallery":{"name":"gallery","base":"https:\/\/e-uapv2022.univ-avignon.fr\/lib\/yuilib\/gallery\/","combine":true,"comboBase":"https:\/\/e-uapv2022.univ-avignon.fr\/theme\/yui_combo.php?","ext":false,"root":"gallery\/1664458079\/","patterns":{"gallery-":{"group":"gallery"}}}},"modules":{"core_filepicker":{"name":"core_filepicker","fullpath":"https:\/\/e-uapv2022.univ-avignon.fr\/lib\/javascript.php\/1664458079\/repository\/filepicker.js","requires":["base","node","node-event-simulate","json","async-queue","io-base","io-upload-iframe","io-form","yui2-treeview","panel","cookie","datatable","datatable-sort","resize-plugin","dd-plugin","escape","moodle-core_filepicker","moodle-core-notification-dialogue"]},"core_comment":{"name":"core_comment","fullpath":"https:\/\/e-uapv2022.univ-avignon.fr\/lib\/javascript.php\/1664458079\/comment\/comment.js","requires":["base","io-base","node","json","yui2-animation","overlay","escape"]},"mathjax":{"name":"mathjax","fullpath":"https:\/\/cdn.jsdelivr.net\/npm\/mathjax@2.7.9\/MathJax.js?delayStartupUntil=configured"}}};
+M.yui.loader = {modules: {}};
+
+//]]>
+</script>
+<style>
+    .reponse{
+        color: crimson;
+    }
+</style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body  id="page-mod-page-view" class="format-topics limitedwidth  path-mod path-mod-page chrome dir-ltr lang-en yui-skin-sam yui3-skin-sam e-uapv2022-univ-avignon-fr pagelayout-incourse course-3166 context-20862 cmid-14150 category-2502 uses-drawers">
+
+    <div class="toast-wrapper mx-auto py-0 fixed-top" role="status" aria-live="polite"></div>
+<div id="page-wrapper" class="d-print-block">
+
+    <div>
+    <a class="sr-only sr-only-focusable" href="#maincontent">Skip to main content</a>
+</div><script src="https://e-uapv2022.univ-avignon.fr/lib/javascript.php/1664458079/lib/polyfills/polyfill.js"></script>
+<script src="https://e-uapv2022.univ-avignon.fr/theme/yui_combo.php?rollup/3.17.2/yui-moodlesimple-min.js"></script><script src="https://e-uapv2022.univ-avignon.fr/lib/javascript.php/1664458079/lib/javascript-static.js"></script>
+<script>
+//<![CDATA[
+document.body.className += ' jsenabled';
+//]]>
+</script>
+
+
+
+    <nav class="navbar fixed-top navbar-light bg-white navbar-expand" aria-label="Site navigation">
+    
+        <button class="navbar-toggler aabtn d-block d-md-none px-1 my-1 border-0" data-toggler="drawers" data-action="toggle" data-target="theme_boost-drawers-primary">
+            <span class="navbar-toggler-icon"></span>
+            <span class="sr-only">Side panel</span>
+        </button>
+    
+        <a href="https://e-uapv2022.univ-avignon.fr/" class="navbar-brand d-none d-md-flex align-items-center m-0 mr-4 p-0 aabtn">
+    
+                <img src="https://e-uapv2022.univ-avignon.fr/pluginfile.php/1/core_admin/logocompact/300x300/1664458079/logo-au-blanc.png" class="logo mr-1" alt="E-uapv2022">
+        </a>
+            <div class="primary-navigation">
+                <nav class="moremenu navigation">
+                    <ul id="moremenu-633e73f91d9be-navbar-nav" role="menubar" class="nav more-nav navbar-nav">
+                                <li data-key="home" class="nav-item" role="none" data-forceintomoremenu="false">
+                                            <a role="menuitem" class="nav-link  "
+                                                href="https://e-uapv2022.univ-avignon.fr/"
+                                                
+                                                tabindex="-1"
+                                            >
+                                                Home
+                                            </a>
+                                </li>
+                                <li data-key="myhome" class="nav-item" role="none" data-forceintomoremenu="false">
+                                            <a role="menuitem" class="nav-link  "
+                                                href="https://e-uapv2022.univ-avignon.fr/my/"
+                                                
+                                                tabindex="-1"
+                                            >
+                                                Dashboard
+                                            </a>
+                                </li>
+                                <li data-key="mycourses" class="nav-item" role="none" data-forceintomoremenu="false">
+                                            <a role="menuitem" class="nav-link  "
+                                                href="https://e-uapv2022.univ-avignon.fr/my/courses.php"
+                                                
+                                                tabindex="-1"
+                                            >
+                                                My courses
+                                            </a>
+                                </li>
+                        <li role="none" class="nav-item dropdown dropdownmoremenu d-none" data-region="morebutton">
+                            <a class="dropdown-toggle nav-link " href="#" id="moremenu-dropdown-633e73f91d9be" role="menuitem" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="-1">
+                                More
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-left" data-region="moredropdown" aria-labelledby="moremenu-dropdown-633e73f91d9be" role="menu">
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+    
+        <ul class="navbar-nav d-none d-md-flex my-1 px-1">
+            <!-- page_heading_menu -->
+            
+        </ul>
+    
+        <div id="usernavigation" class="navbar-nav ml-auto">
+            <div class="popover-region collapsed popover-region-notifications"
+    id="nav-notification-popover-container" data-userid="3745"
+    data-region="popover-region">
+    <div class="popover-region-toggle nav-link icon-no-margin"
+        data-region="popover-region-toggle"
+        role="button"
+        aria-controls="popover-region-container-633e73f923bfd633e73f8f28084"
+        aria-haspopup="true"
+        aria-label=" Show notification window with no new notifications   "
+        tabindex="0">
+                <i class="icon fa fa-bell-o fa-fw "  title="Toggle notifications menu" role="img" aria-label="Toggle notifications menu"></i>
+        <div
+            class="count-container hidden"
+            data-region="count-container"
+            aria-hidden=true
+        >
+            0
+        </div>
+
+    </div>
+    <div 
+        id="popover-region-container-633e73f923bfd633e73f8f28084"
+        class="popover-region-container"
+        data-region="popover-region-container"
+        aria-expanded="false"
+        aria-hidden="true"
+        aria-label="Notification window"
+        role="region">
+        <div class="popover-region-header-container">
+            <h3 class="popover-region-header-text" data-region="popover-region-header-text">Notifications</h3>
+            <div class="popover-region-header-actions" data-region="popover-region-header-actions">        <a class="mark-all-read-button"
+           href="#"
+           title="Mark all as read"
+           data-action="mark-all-read"
+           role="button"
+           aria-label="Mark all as read">
+            <span class="normal-icon"><i class="icon fa fa-check fa-fw " aria-hidden="true"  ></i></span>
+            <span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Loading" role="img" aria-label="Loading"></i></span>
+        </a>
+            <a href="https://e-uapv2022.univ-avignon.fr/message/notificationpreferences.php"
+               title="Notification preferences"
+               aria-label="Notification preferences">
+                <i class="icon fa fa-cog fa-fw " aria-hidden="true"  ></i></a>
+</div>
+        </div>
+        <div class="popover-region-content-container" data-region="popover-region-content-container">
+            <div class="popover-region-content" data-region="popover-region-content">
+                        <div class="all-notifications"
+            data-region="all-notifications"
+            role="log"
+            aria-busy="false"
+            aria-atomic="false"
+            aria-relevant="additions"></div>
+        <div class="empty-message" tabindex="0" data-region="empty-message">You have no notifications</div>
+
+            </div>
+            <span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-fw "  title="Loading" role="img" aria-label="Loading"></i></span>
+        </div>
+                <a class="see-all-link"
+                    href="https://e-uapv2022.univ-avignon.fr/message/output/popup/notifications.php">
+                    <div class="popover-region-footer-container">
+                        <div class="popover-region-seeall-text">See all</div>
+                    </div>
+                </a>
+    </div>
+</div>
+            <div class="d-flex align-items-stretch usermenu-container" data-region="usermenu">
+                    <div class="usermenu">
+                            <div class="dropdown show">
+                                <a href="#" role="button" id="user-menu-toggle" data-toggle="dropdown" aria-label="User menu"
+                                   aria-haspopup="true" aria-controls="user-action-menu" class="btn dropdown-toggle">
+                                    <span class="userbutton">
+                                        <span class="avatars">
+                                                <span class="avatar current">
+                                                    <span class="userinitials size-35">CP</span>
+                                                </span>
+                                        </span>
+                                    </span>
+                                </a>
+                                <div id="user-action-menu" class="dropdown-menu dropdown-menu-right">
+                                    <div id="usermenu-carousel" class="carousel slide" data-touch="false" data-interval="false" data-keyboard="false">
+                                        <div class="carousel-inner">
+                                            <div id="carousel-item-main" class="carousel-item active" role="menu" tabindex="-1" aria-label="User">
+                                                        <a href="https://e-uapv2022.univ-avignon.fr/user/profile.php" class="dropdown-item" role="menuitem" tabindex="-1">
+                                                                
+                                                            Profile
+                                                        </a>
+                                                    
+                                                        <a href="https://e-uapv2022.univ-avignon.fr/grade/report/overview/index.php" class="dropdown-item" role="menuitem" tabindex="-1">
+                                                                
+                                                            Grades
+                                                        </a>
+                                                    
+                                                        <a href="https://e-uapv2022.univ-avignon.fr/calendar/view.php?view=month" class="dropdown-item" role="menuitem" tabindex="-1">
+                                                                
+                                                            Calendar
+                                                        </a>
+                                                    
+                                                        <a href="https://e-uapv2022.univ-avignon.fr/user/files.php" class="dropdown-item" role="menuitem" tabindex="-1">
+                                                                
+                                                            Private files
+                                                        </a>
+                                                    
+                                                        <a href="https://e-uapv2022.univ-avignon.fr/reportbuilder/index.php" class="dropdown-item" role="menuitem" tabindex="-1">
+                                                                
+                                                            Reports
+                                                        </a>
+                                                    
+                                                    <div class="dropdown-divider"></div>
+                                                        <a href="https://e-uapv2022.univ-avignon.fr/user/preferences.php" class="dropdown-item" role="menuitem" tabindex="-1">
+                                                                
+                                                            Preferences
+                                                        </a>
+                                                    
+                                                        <a href="#" class="carousel-navigation-link dropdown-item" role="menuitem" tabindex="-1" data-carousel-target-id="carousel-item-633e73f91dda1">
+                                                                
+                                                            Language
+                                                        </a>
+                                                    <div class="dropdown-divider"></div>
+                                                        <a href="https://e-uapv2022.univ-avignon.fr/login/logout.php?sesskey=sS3BMrJZkc" class="dropdown-item" role="menuitem" tabindex="-1">
+                                                                
+                                                            Log out
+                                                        </a>
+                                                    
+                                            </div>
+                                                <div id="carousel-item-633e73f91dda1" class="carousel-item submenu" tabindex="-1" aria-label="Language selector">
+                                                    <div class="d-flex flex-column h-100">
+                                                        <div class="header">
+                                                            <button type="button" class="btn btn-icon carousel-navigation-link text-decoration-none text-body" data-carousel-target-id="carousel-item-main" aria-label="Go back to user menu">
+                                                                <span class="dir-rtl-hide"><img class="icon " alt="" aria-hidden="true" src="https://e-uapv2022.univ-avignon.fr/theme/image.php/boost/core/1664458079/i/arrow-left" /></span>
+                                                                <span class="dir-ltr-hide"><img class="icon " alt="" aria-hidden="true" src="https://e-uapv2022.univ-avignon.fr/theme/image.php/boost/core/1664458079/i/arrow-right" /></span>
+                                                            </button>
+                                                            <span class="pl-2" id="carousel-item-title-633e73f91dda1">Language selector</span>
+                                                        </div>
+                                                        <div class="dropdown-divider"></div>
+                                                        <div class="items h-100 overflow-auto" role="menu" aria-labelledby="carousel-item-title-633e73f91dda1">
+                                                                    <a href="#" class="dropdown-item pl-5" role="menuitem" tabindex="-1" aria-current="true"
+                                                                        >
+                                                                        English ‎(en)‎
+                                                                    </a>
+                                                                    <a href="https://e-uapv2022.univ-avignon.fr/mod/page/view.php?id=14150&amp;lang=fr" class="dropdown-item pl-5" role="menuitem" tabindex="-1" 
+                                                                        lang="fr" >
+                                                                        Français ‎(fr)‎
+                                                                    </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+            </div>
+            
+        </div>
+    </nav>
+    
+
+
+<div  class="drawer drawer-left drawer-primary d-print-none not-initialized" data-region="fixed-drawer" id="theme_boost-drawers-primary" data-preference="" data-state="show-drawer-primary" data-forceopen="0" data-close-on-resize="1">
+    <div class="drawerheader">
+        <button
+            class="btn drawertoggle icon-no-margin hidden"
+            data-toggler="drawers"
+            data-action="closedrawer"
+            data-target="theme_boost-drawers-primary"
+            data-toggle="tooltip"
+            data-placement="right"
+            title="Close drawer"
+        >
+            <i class="icon fa fa-times fa-fw " aria-hidden="true"  ></i>
+        </button>
+    </div>
+    <div class="drawercontent drag-container" data-usertour="scroller">
+                <div class="list-group">
+                <a href="https://e-uapv2022.univ-avignon.fr/" class="list-group-item list-group-item-action  " >
+                    Home
+                </a>
+                <a href="https://e-uapv2022.univ-avignon.fr/my/" class="list-group-item list-group-item-action  " >
+                    Dashboard
+                </a>
+                <a href="https://e-uapv2022.univ-avignon.fr/my/courses.php" class="list-group-item list-group-item-action  " >
+                    My courses
+                </a>
+        </div>
+
+    </div>
+</div>
+        <div  class="drawer drawer-left  d-print-none not-initialized" data-region="fixed-drawer" id="theme_boost-drawers-courseindex" data-preference="drawer-open-index" data-state="show-drawer-left" data-forceopen="0" data-close-on-resize="0">
+    <div class="drawerheader">
+        <button
+            class="btn drawertoggle icon-no-margin hidden"
+            data-toggler="drawers"
+            data-action="closedrawer"
+            data-target="theme_boost-drawers-courseindex"
+            data-toggle="tooltip"
+            data-placement="right"
+            title="Close course index"
+        >
+            <i class="icon fa fa-times fa-fw " aria-hidden="true"  ></i>
+        </button>
+    </div>
+    <div class="drawercontent drag-container" data-usertour="scroller">
+                        <nav id="courseindex" class="courseindex">
+    <div id="courseindex-content">
+        <div data-region="loading-placeholder-content" aria-hidden="true" id="633e73f8f2801633e73f8f28081-course-index-placeholder">
+            <ul class="media-list">
+                <li class="media">
+                    <div class="media-body col-md-6 p-0 d-flex align-items-center">
+                        <div class="bg-pulse-grey rounded-circle mr-2"></div>
+                        <div class="bg-pulse-grey w-100"></div>
+                    </div>
+                </li>
+                <li class="media">
+                    <div class="media-body col-md-6 p-0 d-flex align-items-center">
+                        <div class="bg-pulse-grey rounded-circle mr-2"></div>
+                        <div class="bg-pulse-grey w-100"></div>
+                    </div>
+                </li>
+                <li class="media">
+                    <div class="media-body col-md-6 p-0 d-flex align-items-center">
+                        <div class="bg-pulse-grey rounded-circle mr-2"></div>
+                        <div class="bg-pulse-grey w-100"></div>
+                    </div>
+                </li>
+                <li class="media">
+                    <div class="media-body col-md-6 p-0 d-flex align-items-center">
+                        <div class="bg-pulse-grey rounded-circle mr-2"></div>
+                        <div class="bg-pulse-grey w-100"></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    </div>
+</div>
+    <div id="page" data-region="mainpage" data-usertour="scroller" class="drawers   drag-container">
+        <div id="topofscroll" class="main-inner">
+            <div class="drawer-toggles d-flex">
+                    <div class="drawer-toggler drawer-left-toggle open-nav d-print-none">
+                        <button
+                            class="btn icon-no-margin"
+                            data-toggler="drawers"
+                            data-action="toggle"
+                            data-target="theme_boost-drawers-courseindex"
+                            data-toggle="tooltip"
+                            data-placement="right"
+                            title="Open course index"
+                        >
+                            <span class="sr-only">Open course index</span>
+                            <i class="icon fa fa-list fa-fw " aria-hidden="true"  ></i>
+                        </button>
+                    </div>
+            </div>
+            <div id="HAUT_DE_LA_PAGE"></div>
+            <header id="page-header" class="header-maxwidth d-print-none">
+    <div class="w-100">
+        <div class="d-flex flex-wrap">
+            <div id="page-navbar">
+                <nav aria-label="Navigation bar">
+    <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="https://e-uapv2022.univ-avignon.fr/course/view.php?id=3166#section-4"  title="ue dbweb 1 : conception internet (S-U02-1254)">ue dbweb 1 : conception internet (S-U02-1254)</a>
+                </li>
+        
+                <li class="breadcrumb-item"><span>TP 2 - Liens hypertextes et listes</span></li>
+        </ol>
+        <ul id="sommaire">
+            <li><a href="#Titre1">1. Liens relatifs et listes</a></li>
+            <li><a href="#Titre2">2. Ancres nomées et liens internes</a> </li>
+          </ul>
+    </nav>
+
+            </div>
+            <div class="ml-auto d-flex">
+                
+            </div>
+            <div id="course-header">
+                
+            </div>
+        </div>
+        <div class="d-flex align-items-center">
+                    <div class="mr-auto">
+                        <div class="page-context-header"><div class="page-header-image mr-2"><div class="content activityiconcontainer modicon_page"><img class="icon activityicon" alt="" aria-hidden="true" src="https://e-uapv2022.univ-avignon.fr/theme/image.php/boost/page/1664458079/monologo" /></div></div><div class="page-header-headings"><div class="text-muted text-uppercase small line-height-3">Page</div><h1 class="h2">TP 2 - Liens hypertextes et listes</h1></div></div>
+                    </div>
+            <div class="header-actions-container ml-auto" data-region="header-actions-container">
+            </div>
+        </div>
+    </div>
+</header>
+            <div id="page-content" class="pb-3 d-print-block">
+                <div id="region-main-box">
+                    <section id="region-main" aria-label="Content">
+
+                        <span class="notifications" id="user-notifications"></span>
+                            <span id="maincontent"></span>
+                            <div class="activity-header" data-for="page-activity-header"></div>
+                        <div role="main"><div class="box py-3 generalbox center clearfix"><div class="no-overflow"><h2>Liens hypertextes&nbsp;et listes</h2>
+<p></p>
+<h3><span style="color: inherit; font-family: inherit;" id="Titre1">1. Liens relatifs et listes</span></h3>  -   <a href="#sommaire">Retour au sommaire</a>    <br>    -   <a class="reponse" href="./index.html">Accès à la réponse</a>
+<p>Afin de simuler l'organisation des pages web au sein d'un site, nous allons créer des fichiers ne contenant que des liens les uns vers les autres. Lorsqu'ils désignent des documents présents sur le même serveur on parle de liens&nbsp;<em>relatifs</em>. En pratique il n'est plus impératif de donner une URL complète dans ce cas, c'est à dire sous la forme "service://serveur/repertoires/fichier". Le service et le serveur sont connus par défaut on ne précise donc que le chemin d'accès du fichier sur le serveur. Mais attention pour cela on indique ce chemin à partir du répertoire qui contient notre page d'appel (ie le fichier qui contient le lien).&nbsp;</p>
+<p><strong>Rappels</strong> sur l'écriture des URL relatives - 4 cas pour un lien de type <code>&lt;a href="monfichier"&gt;Ici pour afficher mon fichier&lt;/a&gt;</code> :</p>
+<ol>
+<li>Ressource située dans le&nbsp;<strong>même répertoire</strong>&nbsp;que la page d'appel (ie le fichier qui contient le lien) : la valeur prise par l'attribut&nbsp;<code>href</code>&nbsp;est simplement le nom du fichier, par exemple&nbsp;<code>href="index.html"</code>.</li>
+<li>Ressource située dans un&nbsp;<span><strong>sous-répertoire</strong> du répertoire</span>&nbsp;contenant la page d'appel : il faut citer la suite des sous-répertoires pour "descendre" jusqu'au fichier ressource, par exemple&nbsp;<code>href="archives/2021/989374.html"</code>.</li>
+<li>Ressource située dans un&nbsp;<span><strong>répertoire contenant</strong> la page d'appel</span>&nbsp;: il faut "remonter" successivement chaque répertoire par "../". Dans cet exemple, le répertoire visé est le supérieur hiérarchique de deuxième rang (le grand-père) :&nbsp;<code>href="../../index.html"</code>.</li>
+<li>Ressource située dans un&nbsp;<span>répertoire situé dans une <strong>branche latérale</strong></span>&nbsp;: il faut remonter au répertoire commun par "../" puis redescendre la bonne branche, par exemple&nbsp;<code>href="../../produits/convecteurs/rh1200x.html"</code>.</li>
+</ol>
+<h4>A faire :</h4>
+<table style="width: 100%;" border="1">
+<tbody>
+<tr>
+<td valign="top" width="100%">
+<div class="box">
+<ul>
+<li>Créer la structure de répertoires (dossiers) suivante dans votre espace de stockage personnel :<br> <img src="https://e-uapv2022.univ-avignon.fr/pluginfile.php/20862/mod_page/content/24/arbo.png" height="142" width="426"></li>
+<!-- <table border="0">
+<tr>
+<td colspan="5" align="center"><code>TP3</code></td>
+</tr>
+<tr>
+<td colspan="2" align="right"><big><big>/</big></big></td>
+<td align="center"><big><big>|</big></big></td>
+<td colspan="2" align="left"><big><big>\</big></big></td>
+<tr>
+<td colspan="2" align="center"><code>documents</code><br>
+<big><big>&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;\&nbsp;&nbsp;&nbsp;</big></big></td>
+<td><small><i>index.html</i></small></td>
+<td colspan="2" align="center"><p><code>annexes</code><br>
+<big><big>&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;\&nbsp;&nbsp;&nbsp;</big></big></td>
+</tr>
+<tr>
+<td align="center"><small><i>exemple.html</i></small></td><td align="center"><p><code>perso</code><br><small><i>fic3.html</i></small></p></td>
+<td></td>
+<td align="center"><small><i>annexeA.html</i></small></td><td align="center"><p><code>annexeB</code><br><small><i>annexeB-1.html</i></small></p></td>
+</tr>			
+</table> -->
+<li>Créer ensuite <strong>vous-même</strong> chacun des 5 fichiers html selon le schéma précédent en les placant dans les dossiers correspondants.
+<ul>
+<li>Chaque fichier devra contenir seulement un menu : une liste (numérotée) de liens relatifs vers tous les autres fichiers.</li>
+</ul>
+</li>
+<li>Vérifier à la fin qu'on peut atteindre tous les fichiers depuis n'importe lequel d'entre eux.</li>
+<li>Enfin en guise de contenu pour le fichier <code>exemple.html</code> ajouter une liste numérotée imbriquée dans une liste non numérotée imbriquée dans une liste non numérotée. Items des listes au choix (i.e. leur contenu est sans importance).</li>
+</ul>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p></p>
+<p><span class="important" style="color: #ff0000; font-weight: bold;">Important</span><span style="font-size: 1rem;"> : il faut privilégier les liens relatifs dans les documents HTML ! En effet, lors de la création d'un site destiné à être accessible sur un seul serveur (cas général), tous les liens internes doivent être sous forme relative. Car on développe sur sa propre machine avant de transférer l'ensemble du site créé sur le serveur. Si les liens internes sont sous forme absolue ("http://nom du serveur/rep1/rep1.8/document.html"), ils ne seront plus valides après le transfert (puisque les répertoires ne seront pas forcement les mêmes sur le serveur).</span></p>
+<p></p>
+<h3 id="Titre2">2. Ancres nommées et liens internes</h3>  -   <a href="#sommaire">Retour au sommaire</a>    <br>    -   <a class="reponse" href="./dbweb.html">Accès à la réponse</a>
+<p>Dans ce second exercice, on va utiliser les <em>liens internes</em> à une page. Dans ce cas les liens ne modifient pas la page affichée mais la partie de la page visible dans la zone d'affichage en se déplaçant vers un emplacement indiqué dans le lien. Pour cela l'URL de base peut être complétée par une ancre nommée au sein du fichier, en ajoutant un "#" sous la forme <code>http://nom du serveur/repertoires/monfichier.html#exercice2</code> par exemple. On peut donc utiliser cette capacité entre des documents différents. Et on peut la simplifier en <code>#exercice2</code> au sein du même fichier. Il ne reste plus qu'à créer l'emplacement visé sous la forme d'une ancre nommée, qui est un lien avec un nom (attribut "id").</p>
+<h4>A faire :</h4>
+<table style="width: 100%;" border="1">
+<tbody>
+<tr>
+<td valign="top" width="100%">
+<div class="box">
+<ul>
+<li>Sauvegarder le fichier html de ce sujet de TP (donc la page que vous avez sous les yeux actuellement) dans votre espace de stockage. Voir le TP0, si vous ne savez pas faire.</li>
+<li>Insérer une table des matières hypertexte au début du fichier : c'est à dire la liste des titres de niveau H3 présents dans le sujet avec des liens vers les titres eux-mêmes qui se trouveront plus bas dans le corps du sujet. Pour cela il faut :</li>
+<ul>
+<li>Créer une ancre nommée au niveau de chaque titre</li>
+<li>Créer un lien "Retour au sommaire" vers le sommaire au niveau de chaque titre (pour remonter instantanément au début de la page)</li>
+<li>Créer le sommaire en début de page : c'est à dire une liste de liens internes à la page vers les ancres nommées</li>
+</ul>
+<li>Créer une ancre nommée "HAUT DE LA PAGE". Placer un lien vers cette ancre en bas de votre page. Cette ancre va vous permettre de revenir au début de votre page web.</li>
+<li>Au niveau de chaque titre d'exercice, insérer un nouveau lien vers le fichier qui contient la réponse.</li>
+</ul>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p></p>
+<p><span style="color: #ff0000; font-weight: bold;" class="important">Important</span> : vous avez maintenant une idée pour faire des archives de rendu de TP correctes. La dernière étape devra être reproduite à partir de maintenant pour tous les rendus de TP, afin de faciliter la manipulation des rendus par vos chargés de TP et aussi de vous constituer une base d'archive facilement utilisable plus tard.</p>
+<p>© Sujet proposé par&nbsp;Fabrice Lefèvre, 2022</p></div></div><div class="modified">Last modified: Saturday, 1 October 2022, 12:48 PM</div></div>
+                        
+                        
+
+                    </section>
+                </div>
+            </div>
+        </div>
+        
+        <footer id="page-footer" class="footer-popover bg-white">
+            <a href="#HAUT_DE_LA_PAGE">
+            <div data-region="footer-container-popover">
+                <button class="btn btn-icon icon-no-margin btn-footer-popover" title="Revenir en haut de page" style="font-size: 150%;">
+                    🔝
+                </button>
+            </div></a>
+            <div class="footer-content-popover container" data-region="footer-content-popover">
+                    <div class="footer-section p-3 border-bottom">
+        
+        
+                            <div><a href="https://e-uapv2022.univ-avignon.fr/user/contactsitesupport.php"><i class="icon fa fa-envelope-o fa-fw " aria-hidden="true"  ></i>Contact site support</a></div>
+                    </div>
+                <div class="footer-section p-3 border-bottom">
+                    <div class="logininfo">
+                        <div class="logininfo">You are logged in as <a href="https://e-uapv2022.univ-avignon.fr/user/profile.php?id=3745" title="View profile">Colin Palazzetti Rubera</a> (<a href="https://e-uapv2022.univ-avignon.fr/login/logout.php?sesskey=sS3BMrJZkc">Log out</a>)</div>
+                    </div>
+                    <div class="tool_usertours-resettourcontainer">
+                    </div>
+        
+                    <div class="tool_dataprivacy"><a href="https://e-uapv2022.univ-avignon.fr/admin/tool/dataprivacy/summary.php">Data retention summary</a></div><a href="https://download.moodle.org/mobile?version=2022041904&amp;lang=en&amp;iosappid=633359593&amp;androidappid=com.moodle.moodlemobile">Get the mobile app</a>
+                    
+<script>
+//pour chaque ajout d'activité dans le js, penser à l'ajouter aussi dans le css
+
+console.log('script apui présent');
+
+const d = document;
+const b = d.querySelectorAll("body")[0];
+const icons = { 
+    "Atelier" : "workshop",
+    "Base de données" : "data",
+    "BigBlueButton" : "bigbluebuttonbn",
+    "Chat-AU" : "rocketchat",
+    "Choix de Groupe" : "choicegroup",
+    "Consultation" : "survey",
+    "Devoir" : "assign",
+    "Dossier" : "folder",
+    "Débat" : "debate",
+    "Feedback" : "feedback",
+    "Fichier" : "resource",
+    "Forum" : "forum",
+    "Galerie d'images" : "lightboxgallery",
+    "Glossaire" : "glossary",
+    "H5P" : "h5pactivity",
+    "Jeu - Mots croisés" : "game",
+    "Jeu - Mots mêlés" : "game-mixword",
+    "Jeu - Pendu" : "game-hangman",
+    "Jeu - Qui veut gagner des millions" : "game-millionaire",
+    "Leçon" : "lesson",
+    "Liste des tâches" : "checklist",
+    "Livre" : "book",
+    "Outil externe" : "lti",
+    "Page" : "page",
+    "Paquetage IMS Content" : "imscp",
+    "Paquetage SCORM" : "scorm",
+    "Présence" : "attendance",
+    "Questionnaire" : "questionnaire",
+    // "Note" : "stickynotes",
+    "Rendez-vous" : "scheduler",
+    "Sondage" : "choice",
+    "Test" : "quiz",
+    "Test hors-ligne" : "offlinequiz",
+    "URL" : "url",
+    "Vote électronique" : "evoting",
+    "Wiki" : "wiki",
+    "Étiquette" : "label"
+};
+var isActivityTable = 0;
+
+
+// vérifie le changement des classes sur l'élement body 
+const obsBody = new MutationObserver(function (event) {
+
+    // nouvelles icones pour la page de restauration de cours
+    if(b.classList.contains("path-backup")){
+
+console.log('path-backup');
+
+        // pour le tableau .activitytable
+        if(b.querySelector(".activitytable")){
+
+            if(isActivityTable === 0){
+
+                console.log('activitytable');
+                const tables = b.querySelectorAll(".activitytable");
+
+                for(j = 0; j < tables.length; j++){
+
+                    const table = tables[j];
+                    const tableIcons = table.querySelectorAll(".icon");
+                    
+                    for(i = 0; i < tableIcons.length; i++){
+                        const thisIcon = tableIcons[i];
+                        const srcIcon = thisIcon.src;
+                        var isMatch = false;
+                        var elIcon = "";
+                        for(key in icons) {
+                            if(icons.hasOwnProperty(key)) {
+                                var icon = icons[key];
+                                var regexObj = new RegExp(icon,'gi'); 
+                                if(regexObj.test(srcIcon)){
+                                    elIcon = icon;
+                                    isMatch = true;
+                                }
+                            }
+                        }
+                        if(isMatch){
+                            const module = thisIcon.closest('.modulename');
+                            const span = d.createElement("span");
+                            span.classList.add(elIcon,'activity-icon');
+                            module.prepend(span);
+                            console.log('one' + elIcon);
+                            thisIcon.classList.add('d-none');
+                        }
+                    }
+
+                }
+            
+            }
+
+            isActivityTable++;
+
+        }
+    }
+
+    // nouvelles icones pour la page cours qui liste toutes les activités
+    if(b.querySelectorAll(".activity")){
+
+console.log('activity');
+        
+        const courseActivities = b.querySelectorAll(".activity.game");
+        
+        // classe unique sur chaque icone de jeu
+        courseActivities.forEach(function (courseActivity, index) { 
+            const courseActivitiesDiv = courseActivity.querySelector('.activity-item');
+            const courseActivitiesName = courseActivitiesDiv.getAttribute('data-activityname');
+            const courseActivityCssClass = "modtype_" + icons["Jeu - " + courseActivitiesName];
+            const courseActivityTitle = courseActivity.querySelector('.activitytitle');
+            courseActivityTitle.classList.add(courseActivityCssClass);
+        })
+
+    }
+
+    // nouvelles icones pour la popin qui liste toutes les activités à ajouter
+    if(b.querySelector(".modchooser")){
+        
+        // la popin pour choisir les activités s'est ouverte
+        
+        const modalActivityChooser = b.querySelector(".modchooser");
+        const obsModalActivityChooser = new MutationObserver(function (event) {
+            
+            // le contenu de la popin a changé
+            
+            // pour la popin principale
+            const activityicons = modalActivityChooser.querySelectorAll(".activityiconcontainer");
+            if(activityicons.length > 0){
+                
+                // classe unique sur chaque icone de jeu
+                activityicons.forEach(function (activityicon, index) { 
+                    const activityLink = activityicon.closest('a');
+                    if(/add=game/.test(activityLink.href)){ 
+                        const activityTitle = activityLink.querySelector(".optionname");
+                        const activityText = activityTitle.innerText;
+                        const activityDiv = activityicon.closest('div');
+                        const activityCssClass = "modicon_" + icons[activityText];
+                        activityDiv.classList.add(activityCssClass);
+                        console.log('pendu');
+                    }
+                });
+
+            }
+
+            // pour la popin de détail d'une activité
+            if(modalActivityChooser.querySelector(".heading > h5")){
+
+                // la popin a un titre avec h5
+                const modaltitle = modalActivityChooser.querySelector(".heading > h5");
+                const mondaltext = modaltitle.innerText;
+                const cssclass = icons[mondaltext];
+                const addclass = "modicon_" + cssclass;
+                modaltitle.classList.add(addclass,"activitytitle");
+
+            }
+            
+        })
+        obsModalActivityChooser.observe(modalActivityChooser,{
+            attributes: false, 
+            characterData: true,
+            childList: true,
+            subtree: true
+        });
+    }
+})
+obsBody.observe(b, {
+  attributes: true, 
+  attributeFilter: ['class'],
+  childList: false, 
+  characterData: false
+})
+
+/*
+// ajout d'un lien vers EFE dans la barre de navigation
+const nav = d.querySelector(".navbar");
+const bloc = nav.querySelector(".ml-auto");
+const link = d.createElement("a");
+link.innerHTML = "&Eacute;valuation des formations";
+link.href = "https://efe.univ-avignon.fr/";
+link.classList.add("efe");
+link.setAttribute("title", "Retours Ã©tudiants sur les enseignements");
+link.setAttribute("target", "_blank");
+link.setAttribute("style", "padding-left:32px;background: transparent url('https://mapui.univ-avignon.fr/js-moodle-2022/graph.svg') no-repeat left center");
+bloc.prepend(link);
+*/
+</script><script>
+//<![CDATA[
+var require = {
+    baseUrl : 'https://e-uapv2022.univ-avignon.fr/lib/requirejs.php/1664458079/',
+    // We only support AMD modules with an explicit define() statement.
+    enforceDefine: true,
+    skipDataMain: true,
+    waitSeconds : 0,
+
+    paths: {
+        jquery: 'https://e-uapv2022.univ-avignon.fr/lib/javascript.php/1664458079/lib/jquery/jquery-3.6.0.min',
+        jqueryui: 'https://e-uapv2022.univ-avignon.fr/lib/javascript.php/1664458079/lib/jquery/ui-1.13.0/jquery-ui.min',
+        jqueryprivate: 'https://e-uapv2022.univ-avignon.fr/lib/javascript.php/1664458079/lib/requirejs/jquery-private'
+    },
+
+    // Custom jquery config map.
+    map: {
+      // '*' means all modules will get 'jqueryprivate'
+      // for their 'jquery' dependency.
+      '*': { jquery: 'jqueryprivate' },
+      // Stub module for 'process'. This is a workaround for a bug in MathJax (see MDL-60458).
+      '*': { process: 'core/first' },
+
+      // 'jquery-private' wants the real jQuery module
+      // though. If this line was not here, there would
+      // be an unresolvable cyclic dependency.
+      jqueryprivate: { jquery: 'jquery' }
+    }
+};
+
+//]]>
+</script>
+<script src="https://e-uapv2022.univ-avignon.fr/lib/javascript.php/1664458079/lib/requirejs/require.min.js"></script>
+<script>
+//<![CDATA[
+M.util.js_pending("core/first");
+require(['core/first'], function() {
+require(['core/prefetch'])
+;
+require(["media_videojs/loader"], function(loader) {
+    loader.setUp('en');
+});;
+M.util.js_pending('core_courseformat/courseeditor'); require(['core_courseformat/courseeditor'], function(amd) {amd.setViewFormat("3166", {"editing":false,"supportscomponents":true,"statekey":"1664622072_1665031983"}); M.util.js_complete('core_courseformat/courseeditor');});;
+
+require(['core_courseformat/local/courseindex/placeholder'], function(component) {
+    component.init('633e73f8f2801633e73f8f28081-course-index-placeholder');
+});
+;
+
+require(['core_courseformat/local/courseindex/drawer'], function(component) {
+    component.init('courseindex');
+});
+;
+function legacy_activity_onclick_handler_1(e) { e.halt(); window.open('https://e-uapv2022.univ-avignon.fr/mod/resource/view.php?id=14154&redirect=1'); return false; };
+M.util.js_pending('core_courseformat/local/content/activity_header'); require(['core_courseformat/local/content/activity_header'], function(amd) {amd.init(); M.util.js_complete('core_courseformat/local/content/activity_header');});;
+
+    require(['core/moremenu'], function(moremenu) {
+        moremenu(document.querySelector('#moremenu-633e73f91d9be-navbar-nav'));
+    });
+;
+
+require(['jquery', 'message_popup/notification_popover_controller'], function($, Controller) {
+    var container = $('#nav-notification-popover-container');
+    var controller = new Controller(container);
+    controller.registerEventListeners();
+    controller.registerListNavigationEventListeners();
+});
+;
+
+    require(['core/usermenu'], function(UserMenu) {
+        UserMenu.init();
+    });
+;
+
+require(['theme_boost/drawers']);
+;
+
+require(['theme_boost/drawers']);
+;
+
+require(['theme_boost/footer-popover'], function(FooterPopover) {
+    FooterPopover.init();
+});
+;
+
+M.util.js_pending('theme_boost/loader');
+require(['theme_boost/loader', 'theme_boost/drawer'], function(Loader, Drawer) {
+    Drawer.init();
+    M.util.js_complete('theme_boost/loader');
+});
+;
+M.util.js_pending('core/notification'); require(['core/notification'], function(amd) {amd.init(20862, []); M.util.js_complete('core/notification');});;
+M.util.js_pending('core/log'); require(['core/log'], function(amd) {amd.setConfig({"level":"warn"}); M.util.js_complete('core/log');});;
+M.util.js_pending('core/page_global'); require(['core/page_global'], function(amd) {amd.init(); M.util.js_complete('core/page_global');});;
+M.util.js_pending('core/utility'); require(['core/utility'], function(amd) {M.util.js_complete('core/utility');});
+    M.util.js_complete("core/first");
+});
+//]]>
+</script>
+<script>
+//<![CDATA[
+M.str = {"moodle":{"lastmodified":"Last modified","name":"Name","error":"Error","info":"Information","yes":"Yes","no":"No","ok":"OK","cancel":"Cancel","confirm":"Confirm","areyousure":"Are you sure?","closebuttontitle":"Close","unknownerror":"Unknown error","file":"File","url":"URL","collapseall":"Collapse all","expandall":"Expand all"},"repository":{"type":"Type","size":"Size","invalidjson":"Invalid JSON string","nofilesattached":"No files attached","filepicker":"File picker","logout":"Logout","nofilesavailable":"No files available","norepositoriesavailable":"Sorry, none of your current repositories can return files in the required format.","fileexistsdialogheader":"File exists","fileexistsdialog_editor":"A file with that name has already been attached to the text you are editing.","fileexistsdialog_filemanager":"A file with that name has already been attached","renameto":"Rename to \"{$a}\"","referencesexist":"There are {$a} links to this file","select":"Select"},"admin":{"confirmdeletecomments":"You are about to delete comments, are you sure?","confirmation":"Confirmation"},"debug":{"debuginfo":"Debug info","line":"Line","stacktrace":"Stack trace"},"langconfig":{"labelsep":": "}};
+//]]>
+</script>
+<script>
+//<![CDATA[
+(function() {Y.use("moodle-filter_mathjaxloader-loader",function() {M.filter_mathjaxloader.configure({"mathjaxconfig":"\nMathJax.Hub.Config({\n    config: [\"Accessible.js\", \"Safe.js\"],\n    errorSettings: { message: [\"!\"] },\n    skipStartupTypeset: true,\n    messageStyle: \"none\"\n});\n","lang":"en"});
+});
+Y.use("moodle-filter_glossary-autolinker",function() {M.filter_glossary.init_filter_autolinking({"courseid":0});
+});
+M.util.help_popups.setup(Y);
+ M.util.js_pending('random633e73f8f28085'); Y.on('domready', function() { M.util.js_complete("init");  M.util.js_complete('random633e73f8f28085'); });
+})();
+//]]>
+</script>
+
+                </div>
+                <div class="footer-section p-3">
+                    <div>Powered by <a href="https://moodle.com">Moodle</a></div>
+                </div>
+            </div>
+        
+            <div class="footer-content-debugging footer-dark bg-dark text-light">
+                <div class="container-fluid footer-dark-inner">
+                    
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+</div>
+
+</body>
+</html>
